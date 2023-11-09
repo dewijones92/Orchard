@@ -12,8 +12,8 @@ COPY . .
 RUN nuget restore src/Orchard.sln
 
 # Compile the project
-RUN msbuild Orchard.proj /m /t:Compile /p:MvcBuildViews=true /p:WarningLevel=0
-RUN msbuild Orchard.proj /m /t:Package-Stage
+RUN msbuild Orchard.proj /p:Configuration=Debug /m /t:Compile /p:MvcBuildViews=true /p:WarningLevel=0
+RUN msbuild Orchard.proj /p:Configuration=Debug /m /t:Package-Stage
 
 # Test the project
 # Note: The tests might require an actual SQL Server and other dependencies.
